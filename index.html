@@ -147,7 +147,7 @@
 <body>
 
     <div class="header-card">
-        <div class="balance-title">رصيدك الحالي (من قاعدة البيانات)</div>
+        <div class="balance-title">رصيدك الحالي (سيرفر PythonAnywhere)</div>
         <div class="balance-amount"><span id="balance">0</span> TOMA</div>
         <div class="usd-value">≈ $<span id="usd-balance">0.0000</span> USD</div>
     </div>
@@ -195,7 +195,7 @@
         </div>
         <div class="card-item">
             <span>حالة المزامنة:</span>
-            <b style="color: #4ade80;">متصل بقاعدة البيانات 🟢</b>
+            <b style="color: #4ade80;">متصل بالسيرفر السحابي 🟢</b>
         </div>
     </div>
 
@@ -210,7 +210,8 @@
         const tg = window.Telegram.WebApp;
         tg.expand();
 
-        const API_URL = "http://127.0.0.1:5000";
+        // رابط السيرفر السحابي الخاص بك
+        const API_URL = "https://Gfuvc.pythonanywhere.com";
         let userId = tg.initDataUnsafe?.user?.id || 12345678;
         let userName = tg.initDataUnsafe?.user?.first_name || "مستخدم";
         let lastClaimTime = 0;
@@ -250,10 +251,10 @@
                     updateUI(data.new_balance);
                     lastClaimTime = Date.now();
                     checkMiningStatus();
-                    alert('تهانينا! تم حفظ 100 TOMA في قاعدة البيانات');
+                    alert('تهانينا! تم التعدين وحفظ الرصيد بنجاح.');
                 }
             } catch (err) {
-                alert('حدث خطأ في الاتصال بالسيرفر');
+                alert('حدث خطأ أثناء الاتصال بالسيرفر السحابي');
             }
         }
 
